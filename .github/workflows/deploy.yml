@@ -1,0 +1,25 @@
+name: FTP Deploy (Test FTP)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    name: Upload to FTP Test Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Upload via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: eu-central-1.sftpcloud.io
+          username: 925cb584c89d48a995c26871dd4d0991
+          password: EqwOzGj7M7sjK0w9HcwjIJQC3qL4geTM
+          protocol: ftp
+          port: 21
+          server-dir: /
